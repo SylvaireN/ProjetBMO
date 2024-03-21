@@ -1,0 +1,13 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Ajouter"] {
+  //Scénario Erronée
+  actor Bob_bookmaker
+  lifeline "ServeurParisEnLigne" as serveur
+  lifeline " : EvenementSportif" as evenement
+ 
+  Bob_bookmaker --> serveur "ajouter('1274','12/02/24','EvenementSpotif','cote','Victoire E1'...)"
+  activate serveur
+  
+
+  Bob_bookmaker <-r- serveur "erreur(Cet EvenementSportif est déjà créer sur le système )"
+  deactivate serveur
+}

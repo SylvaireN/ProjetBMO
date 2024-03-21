@@ -1,0 +1,16 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Connecter"] {
+  //Scénario Nominale
+  actor user
+  lifeline "ServeurParisEnLigne" as serveur
+  lifeline "Boris : Parieur" as parieur
+ 
+  user --> serveur "connecte('Boris','Mdpasse')"
+  activate serveur
+  serveur --> parieur "connecte('Mdpasse')"
+  activate parieur
+  
+  serveur <-r- parieur "ok"
+  deactivate parieur
+  user <-r- serveur "connecté"
+  deactivate serveur
+}

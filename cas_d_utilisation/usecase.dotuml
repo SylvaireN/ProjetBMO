@@ -1,0 +1,22 @@
+UseCaseDiagram [frame=true framecolor=steelblue label="systeme de paris sportif"] {
+  attribute usecase [fillcolor=paleturquoise]
+  actor a as "Parieur"
+  actor c as "bookmaker"
+  system s as "systeme de paris sportif" [fillcolor=whitesmoke] {
+    usecase u3 as "Ajouter"
+    usecase u1 as "Limiter" 
+    usecase u2 as "Plafonner" 
+     
+    usecase u4 as "Connecter" 
+    usecase u5 as "Parier"
+    usecase u6 as "Recharger"
+  }
+ 
+  c "" -- "" u1
+  c "" -- "" u2
+  c "" -- "" u3
+  a "" -- "" u4
+  a "" -- "" u5
+  a "" -- "" u6
+ 
+}

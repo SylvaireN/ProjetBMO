@@ -1,0 +1,16 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Parier"] {
+  //Scénario Nominale
+  actor Boris_Parieur
+  lifeline "ServeurParisEnLigne" as serveur
+  lifeline "1123 : Pari" as pari
+ 
+  Boris_Parieur --> serveur "parier('1123','12','4','PariAvancée','100jetons','En cours','0')"
+  activate serveur
+  serveur --> pari "make('1123'...)"
+  activate pari
+  
+  serveur <-r- pari "ok"
+  deactivate pari
+  Boris_Parieur <-r- serveur "Paris Effectué"
+  deactivate serveur
+}

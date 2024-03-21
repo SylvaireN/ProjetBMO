@@ -1,0 +1,16 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Recharger"] {
+  //Scénario Nominale
+  actor Boris_Parieur
+  lifeline "ServeurParisEnLigne" as serveur
+  lifeline "1674 : Jetons" as pari
+ 
+  Boris_Parieur --> serveur "recharger('1674','12','200jetons')"
+  activate serveur
+  serveur --> pari "make('1674'...)"
+  activate pari
+  
+  serveur <-r- pari "ok"
+  deactivate pari
+  Boris_Parieur <-r- serveur "Recharge Effectué"
+  deactivate serveur
+}

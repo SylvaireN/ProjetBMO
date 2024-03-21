@@ -1,0 +1,15 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Recharger"] {
+  //Scénario Erronée
+  actor Boris_Parieur
+  lifeline "ServeurParisEnLigne" as serveur
+  lifeline " : Jetons" as pari
+ 
+  Boris_Parieur --> serveur "recharger('1674','12','20jetons')"
+  activate serveur
+  
+  
+  
+  deactivate pari
+  Boris_Parieur <-r- serveur "erreur(le recharge mininal sur le systeme est 100jetons)"
+  deactivate serveur
+}

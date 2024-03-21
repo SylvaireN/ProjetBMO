@@ -1,0 +1,9 @@
+StateDiagram [frame=true framecolor=steelblue label="EvenementSportif" splines=ortho] {
+  state Connectée
+  state Ajoutée
+	state Parié
+  initialState->Connectée "Se connecter(p)"
+  Connectée -> Ajoutée "Ajouter(p)[p=bookmaker]"
+  Ajoutée -> Parié "Parier(p) [p=parieur]"
+  Parié -> finalstate
+}

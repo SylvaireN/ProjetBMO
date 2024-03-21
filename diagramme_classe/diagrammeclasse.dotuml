@@ -1,0 +1,71 @@
+ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
+   class Utilisateur {
+    private userId : string
+    private email : string
+    private password : string
+    private solde_jeton : int
+    public seConnecter(email: string, password:string)
+    public créditer_solde()
+    public débiter_solde() 
+  }
+  class Pari {
+    private id_p : int
+    private userId : int
+    private id_event:int
+    private type_Pari: string
+    private montant_jeton:int
+    private resultat: string
+    private gain: int
+    public valider_Pari()
+    public calculer_gain()
+  }
+ 
+  class PariSimple extends Pari {
+  }
+ 
+  class PariAvancée extends Pari {
+ 
+  }
+ 
+  class EvenementSportif {
+    private id_event : int
+    private nom : string
+    private sport : TypeSport
+    private date:date
+    private result:string
+    private description:text
+    public getCote()
+    public getResult()
+  }
+
+  class TypeSport {
+      private oid : int
+      private description : string
+      
+    }
+
+  class bookmaker{
+    private id:int
+    private nom: string
+    public definirCote()
+    public selectEvent()
+    }
+
+ 
+  
+Utilisateur "1" -- "*" Pari : "Place"
+ 
+  EvenementSportif "*"--"1"TypeSport:"est lié" 
+
+ 
+  bookmaker "1"--"*" Pari:"gérer"
+  bookmaker "1" --"*" EvenementSportif : "utilise"
+ 
+  EvenementSportif "1"--"*"Pari:"placer sur" 
+
+
+ 
+
+
+ 
+}

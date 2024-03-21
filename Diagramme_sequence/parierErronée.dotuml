@@ -1,0 +1,15 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Parier"] {
+  //Scénario Erronée
+  actor Boris_Parieur
+  lifeline "ServeurParisEnLigne" as serveur
+  lifeline " : Pari" as pari
+ 
+  Boris_Parieur --> serveur "parier('1123','12','4','PariAvancée','250jetons','En cours','0')"
+  activate serveur
+ 
+  
+  
+  deactivate pari
+  Boris_Parieur <-r- serveur "erreur(le montant maximal pour ce pari est 120jetons)"
+  deactivate serveur
+}

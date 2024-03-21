@@ -1,0 +1,16 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Ajouter"] {
+  //Scénario Nominale
+  actor Bob_bookmaker
+  lifeline "ServeurParisEnLigne" as serveur
+  lifeline "1274 : EvenementSportif" as evenement
+ 
+  Bob_bookmaker --> serveur "ajouter('1274','12/02/24','EvenementSpotif','cote','Victoire E1'...)"
+  activate serveur
+  serveur --> evenement "make('1274'...)"
+  activate evenement
+  
+  serveur <-r- evenement "ok"
+  deactivate evenement
+  Bob_bookmaker <-r- serveur "Ajout EvenementSportif Effectué"
+  deactivate serveur
+}

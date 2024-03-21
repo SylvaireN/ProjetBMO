@@ -1,0 +1,16 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Plafonner"] {
+  //Scénario Nominale
+  actor Bob_bookmaker
+  lifeline "ServeurParisEnLigne" as serveur
+  lifeline "1274 : EvenementSportif" as evenement
+ 
+  Bob_bookmaker --> serveur "plafonner('1274','12/02/24','EvenementSpotif','cote','900jetons à gagné'...)"
+  activate serveur
+  serveur --> evenement "update('1274'...)"
+  activate evenement
+  
+  serveur <-r- evenement "ok"
+  deactivate evenement
+  Bob_bookmaker <-r- serveur " montant maximal des gain du pari pour EvenementSportif modifié"
+  deactivate serveur
+}
